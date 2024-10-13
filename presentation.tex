@@ -22,9 +22,24 @@
 \section{Introdução}
 
 \begin{frame}{Introdução}
+    \begin{figure}[ht]
+        \begin{minipage}[b]{0.45\linewidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/flight-bag.jpg}
+            \caption{Flight Bag (Wikimedia CC BY-SA 2.0)}
+        \end{minipage}
+        \hspace{0.5cm}
+        \pause
+        \begin{minipage}[b]{0.45\linewidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/efb-a320.png}
+            \caption{Electronic Flight Bag {MSFS2020 / FlyByWire Simulations}}
+        \end{minipage}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Introdução}
     \begin{itemize}
-        \item Flight Bag
-        \item Electronic Flight Bag
         \item Simulação de voo
         \item AISWEB, METAR-TAF, SIGMET
     \end{itemize}
@@ -32,6 +47,7 @@
 
 \begin{frame}{UI}
     \includegraphics[width=0.7\linewidth]{img/UI.png}
+    \pause
     \includegraphics[width=0.2\linewidth]{img/UI_mobile.png}  
 \end{frame}
 
@@ -74,7 +90,7 @@
 \begin{frame}{Diagrama da arquitetura}
     \begin{figure}[ht]
         \begin{center}
-        \includegraphics[width=0.8\linewidth]{img/diagrama-arquitetura.png}
+        \includegraphics[width=0.8\linewidth]{img/arquitetura.png}
         \label{fig:arquitetura}
         \end{center}
     \end{figure}
@@ -129,19 +145,54 @@
 \end{frame}
 
 \begin{frame}{Histórico}
-    \begin{itemize}
-        \item TODO
-    \end{itemize}
+    \begin{figure}[ht]
+        \begin{center}
+        \includegraphics[width=0.9\linewidth]{img/history-1.png}
+        \label{fig:UI}
+        \end{center}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Histórico}
+    \begin{figure}[ht]
+        \begin{center}
+        \includegraphics[width=0.9\linewidth]{img/history-2.png}
+        \label{fig:UI}
+        \end{center}
+    \end{figure}
 \end{frame}
 
 \section{Teste de carga}
 
-\section{Conclusão}
+\begin{frame}{Sem cache}
+    Modo desenvolvedor CloudFlare \\
+    \pause
+    \begin{center}
+    \includegraphics[width=0.8\linewidth]{img/locust-no-cache.png}
+    \end{center}
+\end{frame}
 
-\begin{frame}{Conclusão}
-    \begin{itemize}
-        \item TODO
-    \end{itemize}
+\begin{frame}{Cache Redis}
+    Decorator Python \@cache\_it \\
+    \pause
+    \begin{center}
+    \includegraphics[width=0.8\linewidth]{img/locust-cache-redis.png}
+    \end{center}
+\end{frame}
+
+\begin{frame}{Cache NGINX}
+    \pause
+    \begin{center}
+    \includegraphics[width=0.8\linewidth]{img/locust-cache.png}
+    \end{center}
+\end{frame}
+
+
+\section{Conclusão}
+\begin{frame}{Demonstração}
+    \begin{center}
+        \url{https://aero.a4barros.com}
+    \end{center}
 \end{frame}
 
 \begin{frame}{Obrigado}
