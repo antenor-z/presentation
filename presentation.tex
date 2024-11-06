@@ -1,6 +1,7 @@
 \documentclass{beamer}
 \beamerdefaultoverlayspecification{<+->}
 \usepackage{soul}
+\usepackage{listings}
 
 \usetheme{Berlin}
 
@@ -57,10 +58,17 @@
 \begin{frame}{Servidor}
     \begin{figure}[ht]
         \begin{center}
-        \includegraphics[width=0.9\linewidth]{img/oracle.png}
+        \includegraphics[width=0.6\linewidth]{img/oracle.png}
         \label{fig:UI}
         \end{center}
     \end{figure}
+    \pause
+    \begin{itemize}
+        \item \textbf{CPU:} AMD EPYC 7551 (2 cores) @ 1.996GHz
+        \item \textbf{RAM:} 1GB
+        \item \textbf{Armazenamento:} 25GB
+        \item \textbf{SO:} Ubuntu 22.04.4 LTS
+    \end{itemize}
 \end{frame}
 
 \begin{frame}{Arquitetura}
@@ -77,19 +85,37 @@
 \begin{frame}{Diagrama da arquitetura}
     \begin{figure}[ht]
         \begin{center}
-        \includegraphics[width=0.8\linewidth]{img/arquitetura.png}
+        \includegraphics[width=0.6\linewidth]{img/arquitetura.png}
         \label{fig:arquitetura}
         \end{center}
     \end{figure}
+    \pause
+    \begin{itemize}
+        \item Uso de Docker network
+        \item Uso de volumes
+    \end{itemize}
 \end{frame}
 
 \begin{frame}{Diagrama de tempo}
-    \begin{figure}[ht]
-        \begin{center}
-        \includegraphics[width=0.4\linewidth]{img/diagrama-tempo.png}
-        \label{fig:arquitetura}
-        \end{center}
-    \end{figure}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \includegraphics[width=0.9\linewidth]{img/diagrama-tempo.png}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+                \item Tarefas síncronas
+                    \begin{itemize}
+                        \item Rotas
+                    \end{itemize}
+                \item Tarefas assíncronas
+                \begin{itemize}
+                    \item METAR
+                    \item TAF
+                    \item Plots
+                \end{itemize}
+            \end{itemize}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 
@@ -106,13 +132,23 @@
 
 \begin{frame}{METAR}
     \centering
-    \small{\texttt{221300Z 04008KT 9000 FEW020 BKN100 30/23 Q1012}}
-    \begin{figure}[ht]
-        \begin{center}
-        \includegraphics[width=0.8\linewidth]{img/METAR-SBBE.png}
-        \label{fig:UI}
-        \end{center}
-    \end{figure}
+    \begin{itemize}
+        \item Separação nos espaços
+        \item Regex
+        \item Lista de tuplas
+        \item Ferramenta de templating
+    \end{itemize}
+
+    \begin{minipage}[b]{0.9\linewidth}
+        \begin{columns}
+            \begin{column}{0.4\textwidth}
+                \tiny{\texttt{251600Z 22011KT 9999 BKN023 OVC035 21/16 Q1012}}
+            \end{column}
+            \begin{column}{0.6\textwidth}
+                \includegraphics[width=\linewidth]{img/metar-dec.png}
+            \end{column}
+        \end{columns}
+    \end{minipage}
 \end{frame}
 
 \begin{frame}{TAF}
@@ -125,16 +161,20 @@
 
   \begin{figure}[ht]
     \begin{center}
-    \includegraphics[width=0.7\linewidth]{img/TAF-SBBE.png}
+    \includegraphics[width=0.65\linewidth]{img/TAF-SBBE.png}
     \label{fig:UI}
     \end{center}
     \end{figure}
 \end{frame}
 
 \begin{frame}{Histórico}
+    \includegraphics[width=0.9\linewidth]{img/image.png}
+\end{frame}
+
+\begin{frame}{Histórico}
     \begin{figure}[ht]
         \begin{center}
-        \includegraphics[width=0.9\linewidth]{img/history-1.png}
+        \includegraphics[width=0.7\linewidth]{img/history-1.png}
         \label{fig:UI}
         \end{center}
     \end{figure}
@@ -143,7 +183,7 @@
 \begin{frame}{Histórico}
     \begin{figure}[ht]
         \begin{center}
-        \includegraphics[width=0.9\linewidth]{img/history-2.png}
+        \includegraphics[width=0.7\linewidth]{img/history-2.png}
         \label{fig:UI}
         \end{center}
     \end{figure}
@@ -165,25 +205,28 @@
 \section{Teste de carga}
 
 \begin{frame}{Sem cache}
-    Modo desenvolvedor CloudFlare \\
-    \pause
+    \begin{itemize}
+        \item Modo desenvolvedor CloudFlare
+    \end{itemize}    
+
     \begin{center}
-    \includegraphics[width=0.8\linewidth]{img/locust-no-cache.png}
+        \includegraphics[width=0.6\linewidth]{img/locust-no-cache.png}
     \end{center}
 \end{frame}
 
 \begin{frame}{Cache Redis}
-    Decorator Python \@cache\_it \\
-    \pause
+    \begin{itemize}
+        \item Decorator implementado: \@cache\_it
+    \end{itemize}
+
     \begin{center}
-    \includegraphics[width=0.8\linewidth]{img/locust-cache-redis.png}
+    \includegraphics[width=0.6\linewidth]{img/locust-cache-redis.png}
     \end{center}
 \end{frame}
 
 \begin{frame}{Cache NGINX}
-    \pause
     \begin{center}
-    \includegraphics[width=0.8\linewidth]{img/locust-cache.png}
+    \includegraphics[width=0.6\linewidth]{img/locust-cache.png}
     \end{center}
 \end{frame}
 
