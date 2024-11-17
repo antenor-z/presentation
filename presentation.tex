@@ -42,8 +42,21 @@
 \begin{frame}{Introdução}
     \begin{itemize}
         \item Simulação de voo
-        \item AISWEB, METAR-TAF, SIGMET
     \end{itemize}
+    \begin{figure}[ht]
+        \begin{minipage}[b]{0.45\linewidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/aisweb.png}
+            \caption{AISWEB}
+        \end{minipage}
+        \hspace{0.5cm}
+        \pause
+        \begin{minipage}[b]{0.45\linewidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/metar-taf.png}
+            \caption{METAR-TAF}
+        \end{minipage}
+    \end{figure}
 \end{frame}
 
 \begin{frame}{UI}
@@ -118,6 +131,19 @@
     \end{columns}
 \end{frame}
 
+\begin{frame}{Uso de rescursos}
+    \begin{itemize}
+        \item 500 acessos simultâneos (usando Locust)
+    \end{itemize}
+    
+    \begin{figure}[ht]
+        \begin{center}
+        \includegraphics[width=0.8\linewidth]{img/server-500-acessos.png}
+        \label{fig:arquitetura}
+        \end{center}
+    \end{figure}
+\end{frame}
+
 
 \section{Projeto}
 
@@ -189,18 +215,6 @@
     \end{figure}
 \end{frame}
 
-\begin{frame}{Uso de rescursos}
-    \begin{itemize}
-        \item 500 acessos simultâneos (usando Locust)
-    \end{itemize}
-    
-    \begin{figure}[ht]
-        \begin{center}
-        \includegraphics[width=0.8\linewidth]{img/server-500-acessos.png}
-        \label{fig:arquitetura}
-        \end{center}
-    \end{figure}
-\end{frame}
 
 \section{Teste de carga}
 
