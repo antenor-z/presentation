@@ -1,5 +1,5 @@
 \documentclass{beamer}
-\beamerdefaultoverlayspecification{<+->}
+%\beamerdefaultoverlayspecification{<+->}
 \usepackage{soul}
 \usepackage{listings}
 
@@ -41,8 +41,9 @@
 
 \begin{frame}{Introdução}
     \begin{itemize}
-        \item Simulação de voo
+        \item Restrição para simulação de voo
     \end{itemize}
+    \pause
     \begin{figure}[ht]
         \begin{minipage}[b]{0.45\linewidth}
             \centering
@@ -61,7 +62,6 @@
 
 \begin{frame}{UI}
     \includegraphics[width=0.7\linewidth]{img/UI.png}
-    \pause
     \includegraphics[width=0.2\linewidth]{img/UI_mobile.png}  
 \end{frame}
 
@@ -78,19 +78,28 @@
     \pause
     \begin{itemize}
         \item \textbf{CPU:} AMD EPYC 7551 (2 cores) @ 1.996GHz
+        \pause
         \item \textbf{RAM:} 1GB
+        \pause
         \item \textbf{Armazenamento:} 25GB
+        \pause
         \item \textbf{SO:} Ubuntu 22.04.4 LTS
     \end{itemize}
 \end{frame}
 
 \begin{frame}{Arquitetura}
     \begin{itemize}
-        \item Docker/Docker Compose
-        \item Banco: MariaDB
-        \item Backend: \st{Flask} FastAPI
-        \item Frontend: Jinja2
-        \item Observabilidade: GoAccess
+        \item \textbf{Infra:} Docker/Docker Compose
+        \pause
+        \item \textbf{Proxy reversa:} NGINX
+        \pause
+        \item \textbf{Banco:} MariaDB
+        \pause
+        \item \textbf{Backend:} \st{Flask} FastAPI
+        \pause
+        \item \textbf{Frontend:} Jinja2
+        \pause
+        \item \textbf{Observabilidade:} GoAccess
         \item Outros subdomínios
     \end{itemize}
 \end{frame}
@@ -98,11 +107,10 @@
 \begin{frame}{Diagrama da arquitetura}
     \begin{figure}[ht]
         \begin{center}
-        \includegraphics[width=0.6\linewidth]{img/arquitetura.png}
+        \includegraphics[width=0.5\linewidth]{img/arquitetura.png}
         \label{fig:arquitetura}
         \end{center}
     \end{figure}
-    \pause
     \begin{itemize}
         \item Uso de Docker network
         \item Uso de volumes
@@ -112,21 +120,23 @@
 \begin{frame}{Diagrama de tempo}
     \begin{columns}
         \begin{column}{0.5\textwidth}
-            \includegraphics[width=0.9\linewidth]{img/diagrama-tempo.png}
-        \end{column}
-        \begin{column}{0.5\textwidth}
             \begin{itemize}
-                \item Tarefas síncronas
+                \item Tarefas \textbf{síncronas}
                     \begin{itemize}
                         \item Rotas
                     \end{itemize}
-                \item Tarefas assíncronas
-                \begin{itemize}
-                    \item METAR
-                    \item TAF
-                    \item Plots
-                \end{itemize}
+                \pause
+                \item Tarefas \textbf{assíncronas}
+                    \begin{itemize}
+                        \item METAR (20 min)
+                        \item TAF (4 h)
+                        \item Plots (20 min)
+                    \end{itemize}
             \end{itemize}
+        \end{column}
+        \pause
+        \begin{column}{0.5\textwidth}
+            \includegraphics[width=0.9\linewidth]{img/diagrama-tempo.png}
         \end{column}
     \end{columns}
 \end{frame}
@@ -135,6 +145,7 @@
     \begin{itemize}
         \item 500 acessos simultâneos (usando Locust)
     \end{itemize}
+    \pause
     
     \begin{figure}[ht]
         \begin{center}
