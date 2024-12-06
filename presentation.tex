@@ -76,15 +76,26 @@
         \end{center}
     \end{figure}
     \pause
-    \begin{itemize}
-        \item \textbf{CPU:} AMD EPYC 7551 (2 cores) @ 1.996GHz
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+                \item \textbf{CPU:} AMD EPYC 7551 (2 cores) @ 1.996GHz
+                \item \textbf{RAM:} 1GB
+                \item \textbf{Armazenamento:} 25GB
+                \item \textbf{SO:} Ubuntu 22.04 LTS
+            \end{itemize}
+        \end{column}
         \pause
-        \item \textbf{RAM:} 1GB
-        \pause
-        \item \textbf{Armazenamento:} 25GB
-        \pause
-        \item \textbf{SO:} Ubuntu 22.04.4 LTS
-    \end{itemize}
+        \begin{column}{0.5\textwidth}
+            Upgrade
+            \begin{itemize}
+                \item \textbf{CPU:} Ampere Altra
+                \item \textbf{RAM:} 8GB
+                \item \textbf{Armazenamento:} 50GB
+                \item \textbf{SO:} Ubuntu 22.04 LTS
+            \end{itemize}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \begin{frame}{Arquitetura}
@@ -107,13 +118,12 @@
 \begin{frame}{Diagrama da arquitetura}
     \begin{figure}[ht]
         \begin{center}
-        \includegraphics[width=0.5\linewidth]{img/arquitetura.png}
+        \includegraphics[width=0.65\linewidth]{img/arquitetura.png}
         \label{fig:arquitetura}
         \end{center}
     \end{figure}
     \begin{itemize}
-        \item Uso de Docker network
-        \item Uso de volumes
+        \item Uso de Docker network e volumes
     \end{itemize}
 \end{frame}
 
